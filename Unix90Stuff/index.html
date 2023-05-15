@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unix90/S Admin Page - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="loading.css">
+    <link rel="stylesheet" href="scroll.css">
+</head>
+
+<body>
+    <header>
+        <h1>Unix90/S Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="button">Dashboard</a></li>
+                <li><a href="index.html" class="button">Users</a></li>
+                <li><a href="index.html" class="button">Settings</a></li>
+                <li><a href="index.html" class="button">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Dashboard</h2>
+
+        <template id="loading-template">
+            <div class="loading">
+                <div class="l1"></div>
+                <div class="l2"></div>
+                <div class="l3"></div>
+                <div class="l4"></div>
+                <div class="l5"></div>
+                <div class="l6"></div>
+                <div class="l7"></div>
+                <div class="l8"></div>
+            </div>
+        </template>
+
+        <section>
+            <h3>System Info</h3>
+            <ul>
+                <li>Hostname: <span id="hostname"></span></li>
+                <li>Uptime: <span id="uptime"></span></li>
+                <li>Kernel Name: <span id="kernelname"></span></li>
+                <li>Kernel Version: <span id="kernel"></span></li>
+                <li>System Load: <span id="load"></span></li>
+                <li>Total Memory: <span id="memtotal"></span></li>
+                <li>Available Memory: <span id="memavail"></span></li>
+                <li>Used Memory: <span id="memused"></span></li>
+                <li>CPU Model: <span id="cpu"></span></li>
+                <li>CPU Temperature: <span id="cputemp"></span></li>
+                <li>Number of Cores: <span id="cpucount"></span></li>
+                <li>Number of Threads: <span id="threadcount"></span></li>
+            </ul>
+        </section>
+        <section>
+            <h3>Network Info</h3>
+            <ul>
+                <li>IP Address: <span id="ip"></span></li>
+                <li>MAC Address: <span id="mac"></span></li>
+                <li>Gateway: <span id="gateway"></span></li>
+            </ul>
+        </section>
+        <section>
+            <h3>Storage Info</h3>
+            <ul>
+                <li>Filesystem: <span id="fs"></span></li>
+                <li>Filesystem type: <span id="type"></span></li>
+                <li>Mount Point: <span id="mount"></span></li>
+                <li>Used Space: <span id="used"></span></li>
+                <li>Available Space: <span id="avail"></span></li>
+                <li>Total Space: <span id="total"></span></li>
+                <li>Used Percentage: <span id="usedp"></span></li>
+            </ul>
+        </section>
+
+        <section>
+            <form action="index.html" method="post">
+                <h3>System Commands</h3>
+                <span>
+                    <label for="command">Command:</label>
+                    <input type="text" name="command" id="command">
+                </span>
+                <span>
+                    <label for="root">Run as root:</label>
+                    <input type="checkbox" name="root" id="root">
+                </span>
+                <input type="submit" value="Submit" class="button">
+            </form>
+        </section>
+
+        <section style="display: none;">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In omni enim arte vel studio vel quavis scientia
+                vel in ipsa
+                virtute optimum quidque rarissimum est. Qui potest igitur habitare in beata vita summi mali metus? Idem
+                etiam
+                dolorem saepe perpetiuntur, ne, si id non faciant, incidant in maiorem. Quem ad modum quis ambulet,
+                sedeat, qui
+                ductus oris, qui vultus in quoque sit? Si verbum sequimur, primum longius verbum praepositum quam bonum.
+            </p>
+
+            <p>Sunt enim prima elementa naturae, quibus auctis vírtutis quasi germen efficitur. <i>Beatus sibi videtur
+                    esse
+                    moriens.</i> Quid enim mihi potest esse optatius quam cum Catone, omnium virtutum auctore, de
+                virtutibus
+                disputare? <mark>Hoc non est positum in nostra actione.</mark> </p>
+
+            <p>Nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; <b>An tu me de L.</b> Summus
+                dolor plures
+                dies manere non potest? Quod non faceret, si in voluptate summum bonum poneret. Te enim iudicem aequum
+                puto, modo
+                quae dicat ille bene noris. Apparet statim, quae sint officia, quae actiones. Nunc agendum est
+                subtilius. </p>
+
+            <p>Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. Ad eas enim res ab Epicuro praecepta
+                dantur.
+                Ergo omni animali illud, quod appetiti positum est in eo, quod naturae est accommodatum. </p>
+
+            <p><b>Sed quid sentiat, non videtis.</b> <a href="http://loripsum.net/" target="_blank">Si longus,
+                    levis;</a> Ea possunt
+                paria non esse. Erit enim instructus ad mortem contemnendam, ad exilium, ad ipsum etiam dolorem. Quid
+                ergo? Est enim
+                effectrix multarum et magnarum voluptatum. </p>
+
+            <p>Cur igitur, cum de re conveniat, non malumus usitate loqui? Quia nec honesto quic quam honestius nec
+                turpi turpius.
+                <a href="http://loripsum.net/" target="_blank">Eademne, quae restincta siti?</a> Quos quidem tibi
+                studiose et
+                diligenter tractandos magnopere censeo.
+            </p>
+
+            <p>His similes sunt omnes, qui virtuti student levantur vitiis, levantur erroribus, nisi forte censes Ti.
+                <i>Nunc haec
+                    primum fortasse audientis servire debemus.</i> <i>Duo Reges: constructio interrete.</i> Aut haec
+                tibi, Torquate,
+                sunt vituperanda aut patrocinium voluptatis repudiandum. Nemo nostrum istius generis asotos iucunde
+                putat vivere.
+                Quare, quoniam de primis naturae commodis satis dietum est nunc de maioribus consequentibusque videamus.
+                <mark>Deinde dolorem quem maximum?</mark>
+            </p>
+
+            <p><a href="http://loripsum.net/" target="_blank">Certe, nisi voluptatem tanti aestimaretis.</a> Quid, si
+                reviviscant
+                Platonis illi et deinceps qui eorum auditores fuerunt, et tecum ita loquantur? At cum de plurimis eadem
+                dicit, tum
+                certe de maximis. Qui autem de summo bono dissentit de tota philosophiae ratione dissentit. In
+                contemplatione et
+                cognitione posita rerum, quae quia deorum erat vitae simillima, sapiente visa est dignissima. </p>
+
+            <p>Sit ista in Graecorum levitate perversitas, qui maledictis insectantur eos, a quibus de veritate
+                dissentiunt. Sed
+                quoniam et advesperascit et mihi ad villam revertendum est, nunc quidem hactenus; Sic enim maiores
+                nostri labores
+                non fugiendos tristissimo tamen verbo aerumnas etiam in deo nominaverunt. Plane idem, inquit, et maxima
+                quidem, qua
+                fieri nulla maior potest. Roges enim Aristonem, bonane ei videantur haec: vacuitas doloris, divitiae,
+                valitudo; Ne
+                tum quidem te respicies et cogitabis sibi quemque natum esse et suis voluptatibus? </p>
+
+            <p><i>Traditur, inquit, ab Epicuro ratio neglegendi doloris.</i> <a href="http://loripsum.net/"
+                    target="_blank">Velut
+                    ego nunc moveor.</a> Aut, Pylades cum sis, dices te esse Orestem, ut moriare pro amico? <i>Illi enim
+                    inter se
+                    dissentiunt.</i> Huius ego nunc auctoritatem sequens idem faciam. <i>Simus igitur contenti his.</i>
+                <b>Quorum
+                    altera prosunt, nocent altera.</b> <i>At multis se probavit.</i>
+            </p>
+
+            <p>Qui si omnes veri erunt, ut Epicuri ratio docet, tum denique poterit aliquid cognosci et percipi. Quid
+                enim mihi
+                potest esse optatius quam cum Catone, omnium virtutum auctore, de virtutibus disputare? Nihil opus est
+                exemplis hoc
+                facere longius. In quibus doctissimi illi veteres inesse quiddam caeleste et divinum putaverunt.
+                <b>Nihil enim hoc
+                    differt.</b> Sed quid minus probandum quam esse aliquem beatum nec satis beatum? <a
+                    href="http://loripsum.net/" target="_blank">Negat esse eam, inquit, propter se expetendam.</a>
+            </p>
+
+            <p>Dicimus aliquem hilare vivere; Rapior illuc, revocat autem Antiochus, nec est praeterea, quem audiamus.
+                Intellegi
+                quidem, ut propter aliam quampiam rem, verbi gratia propter voluptatem, nos amemus; Sed ad rem redeamus;
+                <i>Philosophi autem in suis lectulis plerumque moriuntur.</i> Hoc sic expositum dissimile est superiori.
+            </p>
+
+            <p>Restatis igitur vos; Et quod est munus, quod opus sapientiae? <mark>Conferam avum tuum Drusum cum
+                    C.</mark> Dolere
+                malum est: in crucem qui agitur, beatus esse non potest. Hoc etsi multimodis reprehendi potest, tamen
+                accipio, quod
+                dant. Sed haec in pueris; An est aliquid, quod te sua sponte delectet? </p>
+
+            <p>Sed in rebus apertissimis nimium longi sumus. <a href="http://loripsum.net/" target="_blank">Sed nunc,
+                    quod
+                    agimus;</a> <i>Nunc vides, quid faciat.</i> Nonne videmus quanta perturbatio rerum omnium
+                consequatur, quanta
+                confusio? Videamus igitur sententias eorum, tum ad verba redeamus. <a href="http://loripsum.net/"
+                    target="_blank">Quam illa ardentis amores excitaret sui! Cur tandem?</a> -, sed ut hoc iudicaremus,
+                non esse in
+                iis partem maximam positam beate aut secus vivendi. Nonne odio multos dignos putamus, qui quodam motu
+                aut statu
+                videntur naturae legem et modum contempsisse? </p>
+
+            <p>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Quod si ita sit, cur opera philosophiae
+                sit danda
+                nescio. Praetereo multos, in bis doctum hominem et suavem, Hieronymum, quem iam cur Peripateticum
+                appellem nescio.
+                Aliter autem vobis placet. <a href="http://loripsum.net/" target="_blank">Negare non possum.</a> Tamen a
+                proposito,
+                inquam, aberramus. Sed est forma eius disciplinae, sicut fere ceterarum, triplex: una pars est naturae,
+                disserendi
+                altera, vivendi tertia. <a href="http://loripsum.net/" target="_blank">Praeclare hoc quidem.</a> </p>
+
+            <p>Idemne potest esse dies saepius, qui semel fuit? Nullis enim partitionibus, nullis definitionibus utuntur
+                ipsique
+                dicunt ea se modo probare, quibus natura tacita adsentiatur. <a href="http://loripsum.net/"
+                    target="_blank">Gloriosa
+                    ostentatio in constituendo summo bono.</a> Eam tum adesse, cum dolor omnis absit; Nam quibus rebus
+                efficiuntur
+                voluptates, eae non sunt in potestate sapientis. Quod autem satis est, eo quicquid accessit, nimium est;
+                <a href="http://loripsum.net/" target="_blank">Quid Zeno?</a> Nam illud vehementer repugnat, eundem
+                beatum esse et
+                multis malis oppressum. Quod autem ratione actum est, id officium appellamus. Sit, inquam, tam facilis,
+                quam vultis,
+                comparatio voluptatis, quid de dolore dicemus? <a href="http://loripsum.net/" target="_blank">Minime
+                    vero istorum
+                    quidem, inquit.</a>
+            </p>
+
+            <p><a href="http://loripsum.net/" target="_blank">Traditur, inquit, ab Epicuro ratio neglegendi doloris.</a>
+                Illum
+                mallem levares, quo optimum atque humanissimum virum, Cn. Ecce aliud simile dissimile. <a
+                    href="http://loripsum.net/" target="_blank">Nullus est igitur cuiusquam dies natalis.</a>
+                <b>Disserendi artem
+                    nullam habuit.</b> At eum nihili facit; <b>Omnis enim est natura diligens sui.</b> Ita multo
+                sanguine profuso in
+                laetitia et in victoria est mortuus.
+            </p>
+
+            <p>Eaedem enim utilitates poterunt eas labefactare atque pervertere. <b>Scisse enim te quis coarguere
+                    possit?</b>
+                Collige omnia, quae soletis: Praesidium amicorum. <a href="http://loripsum.net/" target="_blank">Idemne,
+                    quod
+                    iucunde?</a> Quod, inquit, quamquam voluptatibus quibusdam est saepe iucundius, tamen expetitur
+                propter
+                voluptatem. Aliter enim nosmet ipsos nosse non possumus. </p>
+
+            <p>Sit enim idem caecus, debilis. Teneo, inquit, finem illi videri nihil dolere. Quae quo sunt excelsiores,
+                eo dant
+                clariora indicia naturae. Tecum optime, deinde etiam cum mediocri amico. <mark>Sit enim idem caecus,
+                    debilis.</mark>
+                Isto modo ne improbos quidem, si essent boni viri. Cur deinde Metrodori liberos commendas? Satis est
+                tibi in te,
+                satis in legibus, satis in mediocribus amicitiis praesidii. </p>
+
+            <p>Graecis hoc modicum est: Leonidas, Epaminondas, tres aliqui aut quattuor; Quis istud possit, inquit,
+                negare? Neque
+                solum ea communia, verum etiam paria esse dixerunt. Ita ne hoc quidem modo paria peccata sunt. Quis suae
+                urbis
+                conservatorem Codrum, quis Erechthei filias non maxime laudat? Zenonis est, inquam, hoc Stoici. </p>
+
+            <p><b>Sequitur disserendi ratio cognitioque naturae;</b> Eam si varietatem diceres, intellegerem, ut etiam
+                non dicente
+                te intellego; Expectoque quid ad id, quod quaerebam, respondeas. An potest, inquit ille, quicquam esse
+                suavius quam
+                nihil dolere? Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Nam quid possumus
+                facere melius?
+                Si autem id non concedatur, non continuo vita beata tollitur. <i>Non enim solum Torquatus dixit quid
+                    sentiret, sed
+                    etiam cur.</i> </p>
+
+            <p>Oratio me istius philosophi non offendit; Mihi vero, inquit, placet agi subtilius et, ut ipse dixisti,
+                pressius.
+                Expectoque quid ad id, quod quaerebam, respondeas. Maximas vero virtutes iacere omnis necesse est
+                voluptate
+                dominante. <i>Sed ad rem redeamus;</i> <mark>Honesta oratio, Socratica, Platonis etiam.</mark> <a
+                    href="http://loripsum.net/" target="_blank">Apparet statim, quae sint officia, quae actiones.</a>
+            </p>
+
+            <p><b>Sed nunc, quod agimus;</b> Nec vero sum nescius esse utilitatem in historia, non modo voluptatem. Tu
+                autem negas
+                fortem esse quemquam posse, qui dolorem malum putet. Aeque enim contingit omnibus fidibus, ut
+                incontentae sint.
+                Contineo me ab exemplis. Apud imperitos tum illa dicta sunt, aliquid etiam coronae datum; </p>
+
+            <p>Qui autem esse poteris, nisi te amor ipse ceperit? Illo enim addito iuste fit recte factum, per se autem
+                hoc ipsum
+                reddere in officio ponitur. Ait enim se, si uratur, Quam hoc suave! dicturum. Egone non intellego, quid
+                sit don
+                Graece, Latine voluptas? Bona autem corporis huic sunt, quod posterius posui, similiora. <a
+                    href="http://loripsum.net/" target="_blank">Ratio quidem vestra sic cogit.</a> </p>
+
+            <p>Iam in altera philosophiae parte. <mark>Sin aliud quid voles, postea.</mark> <mark>Quare conare,
+                    quaeso.</mark> Atqui
+                iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; <a href="http://loripsum.net/"
+                    target="_blank">Tibi hoc incredibile, quod beatissimum.</a> <a href="http://loripsum.net/"
+                    target="_blank">Sed
+                    plane dicit quod intellegit.</a> Comprehensum, quod cognitum non habet? Tu quidem reddes; Cupit enim
+                dícere
+                nihil posse ad beatam vitam deesse sapienti. Si autem id non concedatur, non continuo vita beata
+                tollitur. Nulla
+                profecto est, quin suam vim retineat a primo ad extremum. </p>
+
+            <p><mark>Dat enim intervalla et relaxat.</mark> Quid, quod res alia tota est? Cur tantas regiones barbarorum
+                pedibus
+                obiit, tot maria transmisit? Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Sed in
+                rebus
+                apertissimis nimium longi sumus. <a href="http://loripsum.net/" target="_blank">Quae cum essent dicta,
+                    discessimus.</a> Sed quoniam et advesperascit et mihi ad villam revertendum est, nunc quidem
+                hactenus; Quis
+                istud possit, inquit, negare? <i>Et quidem, inquit, vehementer errat;</i> <a href="http://loripsum.net/"
+                    target="_blank">Quid iudicant sensus?</a> Et nunc quidem quod eam tuetur, ut de vite potissimum
+                loquar, est id
+                extrinsecus; Conferam tecum, quam cuique verso rem subicias; </p>
+
+            <p>Non igitur de improbo, sed de callido improbo quaerimus, qualis Q. An vero, inquit, quisquam potest
+                probare, quod
+                perceptfum, quod. Quae quidem vel cum periculo est quaerenda vobis; Scio enim esse quosdam, qui quavis
+                lingua
+                philosophari possint; Equidem etiam Epicurum, in physicis quidem, Democriteum puto. Id enim natura
+                desiderat. </p>
+
+            <p>Conferam tecum, quam cuique verso rem subicias; Quantum Aristoxeni ingenium consumptum videmus in
+                musicis? <a href="http://loripsum.net/" target="_blank">Summum ením bonum exposuit vacuitatem
+                    doloris;</a> Qui non moveatur
+                et offensione turpitudinis et comprobatione honestatis? <a href="http://loripsum.net/"
+                    target="_blank">Utilitatis
+                    causa amicitia est quaesita.</a> Collige omnia, quae soletis: Praesidium amicorum. <i>Id est enim,
+                    de quo
+                    quaerimus.</i> <a href="http://loripsum.net/" target="_blank">Sint ista Graecorum;</a> Si quae
+                forte-possumus.
+            </p>
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

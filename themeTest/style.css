@@ -1,0 +1,50 @@
+:root {
+    --article-light-l: 80%;
+    --article-dark-l: 20%;
+    --article-l: var(--article-light-l);
+    --article-bg-h: 0;
+    --article-bg-s: 0%;
+    --header-light-l: 60%;
+    --header-dark-l: 15%;
+    --header-l: var(--header-light-l);
+    --header-bg-h: 0;
+    --header-bg-s: 0%;
+    --text-color: black;
+}
+
+body {
+    transition: background-color 1s, color 1s;
+}
+
+body.dark {
+    --article-l: var(--article-dark-l);
+    --header-l: var(--header-dark-l);
+    --text-color: white;
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+article {
+    background-color: hsl(var(--article-bg-h), var(--article-bg-s), var(--article-l));
+    border-radius: 5px;
+    color: var(--text-color);
+    transition: background-color 1s, color 1s;
+    margin: 5px;
+    padding-bottom: 5px;
+}
+
+article h2 {
+    background-color: hsl(var(--header-bg-h), var(--header-bg-s), var(--header-l));
+    border-radius: 5px 5px 0 0;
+    padding: 5px;
+    transition: background-color 1s, color 1s;
+    margin-top: 0;
+}
+
+article p {
+    margin: 0 10px 5px 10px;
+}

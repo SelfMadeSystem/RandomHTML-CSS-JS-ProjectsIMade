@@ -1,0 +1,45 @@
+:root {
+    --text-color: black;
+    --blinkSpeed: 0.75s;
+    --blinkDelay: 0s;
+    --twAfterLeft: 0;
+}
+
+div {
+    max-width: 100%;
+}
+
+.center-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typewriter {
+    color: var(--text-color);
+    width: max-content;
+    position: relative;
+}
+
+.typewriter::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    width: 0.125em;
+    height: 1em;
+    left: 100%;
+    right: 0;
+    bottom: 0.125em;
+
+    animation: blink var(--blinkSpeed) steps(2, jump-none) var(--blinkDelay) infinite;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

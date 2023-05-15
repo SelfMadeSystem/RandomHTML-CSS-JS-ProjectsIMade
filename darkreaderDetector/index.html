@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="hidden show-no-darkreader">You are not using darkreader.</div>
+    <div class="hidden show-darkreader">You are using darkreader.</div>
+    <div class="hidden show-darkreader">Mode: <span id="mode"></span></div>
+    <div class="hidden show-darkreader">Scheme: <span id="scheme"></span></div>
+    <script>
+        var modeSpan = document.getElementById('mode');
+        var schemeSpan = document.getElementById('scheme');
+        var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.type == "attributes") {
+                    var newAttr = mutation.target.getAttribute(mutation.attributeName);
+                    console.log("attributes changed: ", mutation.attributeName, newAttr);
+                    switch (mutation.attributeName) {
+                        case "data-darkreader-mode":
+                            modeSpan.innerText = newAttr;
+                            break;
+                        case "data-darkreader-scheme":
+                            schemeSpan.innerText = newAttr;
+                            break;
+                    }
+                }
+            });
+        });
+        observer.observe(document.documentElement, {
+            attributes: true
+        });
+    </script>
+</body>
+
+</html>

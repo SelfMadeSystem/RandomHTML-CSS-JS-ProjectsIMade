@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        canvas {
+            border: 1px solid white;
+            display: inline-block;
+        }
+
+        label {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <canvas id="test" width="700" height="700"></canvas>
+    <span>Hits: <span id="hits">0</span></span>
+    <form autocomplete="off">
+        <label>
+            Gravity: <input type="range" autocomplete="off" id="gravity" min="0" max="2" value="1" step="0.125">
+        </label>
+        <label>
+            Gravity Direction: <select name="grav-dir" id="grav-dir">
+                <option value="down">Down</option>
+                <option value="balls">Balls</option>
+                <option value="center">Center</option>
+                <option value="mass">Center of mass</option>
+            </select>
+        </label>
+        <label>
+            Speed: <input type="range" autocomplete="off" id="speed" min="0.00125" max="0.2" value="0.05"
+                step="0.00125">
+        </label>
+        <label>
+            Steps: <input type="range" autocomplete="off" id="steps" min="1" max="50" value="1" step="1">
+            FASTTT: <input type="checkbox" autocomplete="off" id="fast">
+            GIGA FAST: <input type="checkbox" autocomplete="off" id="giga-fast">
+        </label>
+        <label>
+            Air resistance: <input type="range" autocomplete="off" id="resistance" min="0" max="0.1" value="0"
+                step="0.001">
+        </label>
+        <label>
+            Bounce: <input type="checkbox" autocomplete="off" id="bounce" checked>
+        </label>
+        <label>
+            Borders: <input type="checkbox" autocomplete="off" id="border" checked>
+        </label>
+    </form>
+</body>
+<script src="main.js"></script>
+
+</html>

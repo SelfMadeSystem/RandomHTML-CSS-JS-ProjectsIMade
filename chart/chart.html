@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="inputContainer">
+        Formula: <input type="text" value="2*x+1" id="formula"></input>
+        Zoom X: <input type="number" value="1.0" id="zoomX" step="0.01" min="0.01"></input>
+        Zoom Y: <input type="number" value="1.0" id="zoomY" step="0.01" min="0.01"></input>
+        Camera-Y: <input type="number" value="1.0" id="cameraY" step="0.01"></input>
+        Camera-X: <input type="number" value="1.0" id="cameraX" step="0.01" min="0.01"></input>
+        <button onclick="reload()">Reload</button>
+    </div>
+    <div id="chartContainer" style="position: relative; width: 600px; overflow: auto; resize: horizontal; margin-top: 10px">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="chart.js"></script>
+</body>
+
+</html>

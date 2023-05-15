@@ -1,0 +1,74 @@
+.loading {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    vertical-align: middle;
+    font-size: 1rem;
+    width: 1em;
+    height: 1em;
+}
+
+.loading div {position: absolute;
+    animation: loading 1s linear infinite;
+    width: 0.25em;
+    height: 0.25em;
+    border-radius: 50%;
+}
+
+.loading .l1 {
+    top: 0.088em;
+    left: 0.088em;
+    animation-delay: 0s;
+}
+
+.loading .l2 {
+    top: 0;
+    left: 0.375em;
+    animation-delay: 0.125s;
+}
+
+.loading .l3 {
+    top: 0.088em;
+    right: 0.088em;
+    animation-delay: 0.25s;
+}
+
+.loading .l4 {
+    top: 0.375em;
+    left: 0.75em;
+    animation-delay: 0.375s;
+}
+
+.loading .l5 {
+    bottom: 0.088em;
+    right: 0.088em;
+    animation-delay: 0.5s;
+}
+
+.loading .l6 {
+    top: 0.75em;
+    left: 0.375em;
+    animation-delay: 0.625s;
+}
+
+.loading .l7 {
+    bottom: 0.088em;
+    left: 0.088em;
+    animation-delay: 0.75s;
+}
+
+.loading .l8 {
+    top: 0.375em;
+    left: 0;
+    animation-delay: 0.875s;
+}
+
+@keyframes loading {
+    0% {
+        background-color: #000;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}

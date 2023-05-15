@@ -1,0 +1,12 @@
+#signature {
+    stroke-dasharray: 646.5640258789062;
+    stroke-dashoffset: 646.5640258789062;
+    animation: sign 4s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sign {
+    to {
+        stroke-dashoffset: 320;
+    }
+}

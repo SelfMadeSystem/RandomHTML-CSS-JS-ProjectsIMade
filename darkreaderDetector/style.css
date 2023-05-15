@@ -1,0 +1,14 @@
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+html[data-darkreader-mode] .show-darkreader {
+    display: block;
+    visibility: visible;
+}
+
+html:not([data-darkreader-mode]) .show-no-darkreader {
+    display: block;
+    visibility: visible;
+}

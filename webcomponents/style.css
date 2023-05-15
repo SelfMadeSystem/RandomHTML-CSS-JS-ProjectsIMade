@@ -1,0 +1,121 @@
+:root {
+    --switch-bg: hsl(0, 0%, 83%);
+    --switch-shadow: hsl(0, 0%, 55%);
+    --switch-tab-shadow: hsl(0, 0%, 0%, 25%);
+    --switch-off: hsl(0, 100%, 50%);
+    --switch-on: hsl(120, 100%, 25%);
+    --switch-indeterminate: hsl(31, 100%, 26%);
+    --switch-rn: var(--switch-off);
+
+    --submit-bg: hsl(0, 0%, 76%);
+    --submit-tab-shadow: hsl(0, 0%, 0%, 55%);
+}
+
+input-switch {
+    width: 80px;
+    height: 25px;
+    display: block;
+    border-radius: 25px;
+    background-color: var(--switch-bg);
+    box-shadow: inset 0 0 10px var(--switch-shadow);
+    transition: box-shadow 0.2s;
+    margin: 5px 0;
+}
+
+input-switch:hover {
+    --switch-shadow: hsl(0, 0%, 35%);
+}
+
+input-switch:active {
+    --switch-shadow: hsl(0, 0%, 15%);
+}
+
+input-switch:focus-visible {
+    --switch-shadow: hsl(0, 0%, 0%);
+    box-shadow: inset 0 0 10px var(--switch-shadow),
+        0 0 0px 5px var(--switch-tab-shadow);
+    outline: none;
+}
+
+input-switch span {
+    width: 30px;
+    height: 15px;
+    display: block;
+    border-radius: 7.5px;
+    background-color: var(--switch-rn);
+    top: 5px;
+    left: 5px;
+    position: relative;
+    transition: left 0.5s,
+        background-color 0.25s;
+}
+
+input-switch span.active {
+    --switch-rn: var(--switch-on);
+    left: 45px;
+}
+
+input-switch span.indeterminate {
+    --switch-rn: var(--switch-indeterminate);
+    left: 25px;
+}
+
+input[type=submit]:hover {
+    --submit-bg: hsl(0, 0%, 67%);
+}
+
+input[type=submit]:active {
+    --submit-bg: hsl(0, 0%, 57%);
+}
+
+input[type=submit]:focus-visible {
+    box-shadow: 0 0 0px 5px var(--submit-tab-shadow);
+    outline: none;
+}
+
+input[type=submit] {
+    background-color: var(--submit-bg);
+    border: none;
+    border-radius: 25px;
+    width: 150px;
+    height: 30px;
+    transition: background-color 0.25s,
+        box-shadow 0.2s;
+}
+
+.test-hover {
+    --border-thing: 50px;
+    position: relative;
+    margin: 10px 0;
+    display: block;
+    min-width: calc(100px + var(--border-thing) * 0.5);
+    min-height: calc(100px + var(--border-thing) * 0.5);
+    width: min(50%, 700px);
+    height: 300px;
+    resize: both;
+    overflow: auto;
+    background-color: lightgray;
+}
+
+.test-hover .test-slider {
+    position: absolute;
+    background-color: blue;
+    --limit: calc(clamp(100px, 50%, 300px) - var(--border-thing) * 0.5);
+    width: var(--limit);
+    height: var(--limit);
+    transition: width 0.5s;
+    float: left;
+    border: var(--border-thing) solid black;
+}
+
+.test-hover .test-slider:not(.right) {
+    border-top: none;
+    border-left: none;
+}
+
+.test-hover .test-slider.right {
+    border-bottom: none;
+    border-right: none;
+    right: 0px;
+    bottom: 0px;
+}
